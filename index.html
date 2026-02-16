@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asia Bistro Mekong - Vietnamesisches Restaurant Gießen</title>
+  <meta name="description" content="Asia Bistro Mekong - Authentische vietnamesische Küche in Reiskirchen bei Gießen. Geöffnet Di-So 11:30-20:30. 4,4 Sterne bei 211 Bewertungen.">
+  <meta name="keywords" content="Asia Bistro Mekong, vietnamesisches Restaurant Gießen, asiatisches Restaurant Reiskirchen, Pho, Bun">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#c2410c', accent: '#fbbf24' },
+          fontFamily: { display: ['Playfair Display', 'serif'], body: ['Source Sans 3', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .hero-bg { background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%), url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1920&q=80'); background-size: cover; background-position: center; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+  </style>
+</head>
+<body class="font-body text-gray-800 bg-stone-50">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="font-display text-xl font-bold text-primary">Asia Bistro Mekong</a>
+      <div class="flex items-center gap-6">
+        <a href="#ueber-uns" class="hidden md:block text-gray-600 hover:text-primary">Über uns</a>
+        <a href="#oeffnungszeiten" class="hidden md:block text-gray-600 hover:text-primary">Öffnungszeiten</a>
+        <a href="#kontakt" class="hidden md:block text-gray-600 hover:text-primary">Kontakt</a>
+        <a href="tel:064089694251" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-orange-800 transition">Jetzt anrufen</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-bg min-h-screen flex items-center justify-center text-white px-4">
+    <div class="text-center py-32">
+      <h1 class="font-display text-5xl md:text-7xl font-bold mb-4 animate-fade-in-up">Asia Bistro Mekong</h1>
+      <p class="text-2xl mb-6 animate-fade-in-up opacity-0" style="animation-delay: 0.1s;">Authentische vietnamesische Küche</p>
+      <p class="text-lg text-gray-200 mb-8 max-w-xl mx-auto animate-fade-in-up opacity-0" style="animation-delay: 0.2s;">Erleben Sie die Aromen Vietnams in Reiskirchen bei Gießen</p>
+      <div class="flex gap-4 justify-center animate-fade-in-up opacity-0" style="animation-delay: 0.3s;">
+        <a href="#kontakt" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-orange-800 transition">Kontakt</a>
+        <a href="#karte" class="border-2 border-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-white hover:text-gray-900 transition">Route</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Über uns -->
+  <section id="ueber-uns" class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-display text-4xl font-bold mb-6">Unsere Geschichte</h2>
+          <p class="text-lg text-gray-600 mb-4">Willkommen im <strong>Asia Bistro Mekong</strong> – Ihrem authentischen vietnamesischen Restaurant in Reiskirchen bei Gießen.</p>
+          <p class="text-lg text-gray-600 mb-6">Wir bringen Ihnen die traditionelle Küche Vietnams mit frischen Zutaten und echten Rezepten. Von klassischem Pho bis hin zu knusprigen Frühlingsrollen.</p>
+          <div class="flex gap-4 flex-wrap">
+            <div class="bg-white px-6 py-4 rounded-lg shadow-md"><p class="text-3xl font-bold text-primary">4,4</p><p class="text-gray-500 text-sm">Sterne</p></div>
+            <div class="bg-white px-6 py-4 rounded-lg shadow-md"><p class="text-3xl font-bold text-primary">211</p><p class="text-gray-500 text-sm">Bewertungen</p></div>
+          </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="Vietnamesische Küche" class="rounded-2xl shadow-2xl w-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- Öffnungszeiten -->
+  <section id="oeffnungszeiten" class="py-20 bg-stone-900 text-white px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-display text-4xl font-bold mb-8">Öffnungszeiten</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-stone-800 rounded-2xl p-8">
+          <h3 class="font-display text-2xl font-bold mb-4">Restaurant</h3>
+          <ul class="space-y-3 text-left">
+            <li class="flex justify-between py-2 border-b border-stone-700"><span>Montag</span><span class="text-red-400">Geschlossen</span></li>
+            <li class="flex justify-between py-2 border-b border-stone-700"><span>Dienstag - Sonntag</span><span class="text-white font-medium">11:30 - 20:30</span></li>
+          </ul>
+        </div>
+        <div class="bg-stone-800 rounded-2xl p-8">
+          <h3 class="font-display text-2xl font-bold mb-4">Kontakt</h3>
+          <ul class="space-y-3 text-left">
+            <li class="py-2 border-b border-stone-700"><span class="text-gray-400">Telefon</span><br><a href="tel:064089694251" class="text-primary hover:text-accent">06408 9694251</a></li>
+            <li class="py-2"><span class="text-gray-400">Adresse</span><br><span class="text-white">Grünberger Str. 29<br>35447 Reiskirchen</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt & Karte -->
+  <section id="kontakt" class="py-20 px-4">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="font-display text-4xl font-bold mb-8">Kontakt & Anfahrt</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 class="font-display text-2xl font-bold mb-4">Kontakt</h3>
+          <p class="mb-2"><strong>Asia Bistro Mekong</strong></p>
+          <p class="mb-2">Grünberger Str. 29</p>
+          <p class="mb-4">35447 Reiskirchen</p>
+          <p class="mb-2"><a href="tel:064089694251" class="text-primary hover:underline">06408 9694251</a></p>
+          <div class="mt-6 flex gap-4 justify-center">
+            <a href="tel:064089694251" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-orange-800 transition">Anrufen</a>
+            <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition">Route planen</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 class="font-display text-2xl font-bold mb-4">Karte</h3>
+          <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank">
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=Grünberger+Str+29+Reiskirchen&zoom=15&size=400x300&markers=color:red%7CGrünberger+Str+29+Reiskirchen&key=AIzaSyDemo" alt="Karte" class="w-full rounded-lg">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-white py-12 px-4">
+    <div class="max-w-7xl mx-auto text-center">
+      <h3 class="font-display text-2xl font-bold mb-4">Asia Bistro Mekong</h3>
+      <p class="text-gray-400 mb-4">Authentische vietnamesische Küche in Gießen</p>
+      <p class="text-gray-500 text-sm">Grünberger Str. 29, 35447 Reiskirchen</p>
+      <p class="text-gray-500 text-sm mt-2">© 2026 Asia Bistro Mekong. Alle Rechte vorbehalten.</p>
+      <p class="text-gray-600 text-xs mt-4">Quellen: <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" class="underline">Google Maps</a></p>
+    </div>
+  </footer>
+</body>
+</html>
