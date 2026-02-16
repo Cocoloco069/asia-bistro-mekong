@@ -3,489 +3,917 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asia Bistro Mekong - Vietnamesisches Restaurant Gießen</title>
-    <meta name="description" content="Asia Bistro Mekong - Authentische vietnamesische Küche in Reiskirchen bei Gießen. 4,4 Sterne Bewertung. Jetzt bestellen!">
+    <title>Asia Bistro Mekong | Vietnamesische Küche in Reiskirchen bei Gießen</title>
+    <meta name="description" content="Asia Bistro Mekong – Authentische vietnamesische Küche in Reiskirchen bei Gießen. ⭐ 4,4 Sterne, 211 Bewertungen. Di-So 11:30-20:30. Jetzt besuchen!">
+    <meta name="keywords" content="Vietnam Restaurant, Pho, Asia Bistro, Reiskirchen, Gießen, vietnamesisch Essen, Mekong">
+    <meta property="og:title" content="Asia Bistro Mekong – Vietnamesische Küche in Reiskirchen">
+    <meta property="og:description" content="Authentische vietnamesische Gerichte. 4,4 Sterne, 211 Bewertungen. Di-So 11:30-20:30.">
+    <meta property="og:type" content="restaurant">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cocoloco069.github.io/asia-bistro-mekong/">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Asia Bistro Mekong",
+      "image": "",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Grünberger Str. 29",
+        "addressLocality": "Reiskirchen",
+        "postalCode": "35447",
+        "addressCountry": "DE"
+      },
+      "telephone": "+4964089694251",
+      "servesCuisine": "Vietnamese",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "211"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "11:30",
+          "closes": "20:30"
+        }
+      ],
+      "priceRange": "€€"
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        mekong: {
+                        mk: {
                             red: '#C41E3A',
+                            'red-deep': '#9B1B30',
                             gold: '#D4AF37',
-                            dark: '#1a1a1a',
-                            light: '#f8f5f0'
+                            'gold-light': '#E8CC6A',
+                            dark: '#0F0F0F',
+                            'dark-2': '#1A1A1A',
+                            'dark-3': '#252525',
+                            cream: '#FAF7F2',
+                            'cream-2': '#F3EDE3',
                         }
                     },
                     fontFamily: {
                         display: ['Playfair Display', 'serif'],
-                        body: ['Poppins', 'sans-serif']
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-up': 'slideUp 0.8s ease-out forwards',
-                        'fade-in': 'fadeIn 1s ease-out forwards',
-                        'scale-in': 'scaleIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        },
-                        scaleIn: {
-                            '0%': { opacity: '0', transform: 'scale(0.9)' },
-                            '100%': { opacity: '1', transform: 'scale(1)' }
-                        }
+                        body: ['Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
+
     <style>
-        * { scroll-behavior: smooth; }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
-        }
-        
-        .gold-gradient {
-            background: linear-gradient(90deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+
+        /* ── Typography Gradients ── */
+        .txt-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #F5E5A0 40%, #D4AF37 70%, #B8962E 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        /* ── Glassmorphism ── */
+        .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); }
+        .glass-light { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.5); }
+
+        /* ── Glow Effects ── */
+        .glow-red { box-shadow: 0 0 60px -12px rgba(196,30,58,0.4); }
+        .glow-gold { box-shadow: 0 0 60px -12px rgba(212,175,55,0.3); }
+
+        /* ── Card Hover ── */
+        .lift {
+            transition: transform 0.5s cubic-bezier(0.23,1,0.32,1), box-shadow 0.5s cubic-bezier(0.23,1,0.32,1);
         }
-        
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        .lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.25);
         }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
+
+        /* ── Nav underline ── */
+        .nav-item { position: relative; }
+        .nav-item::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: -4px; left: 50%; width: 0; height: 2px;
             background: #D4AF37;
-            transition: width 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateX(-50%);
         }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        
+        .nav-item:hover::after { width: 100%; }
+
+        /* ── Reveal animations ── */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
         }
-        
-        .reveal.active {
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        @media (max-width: 768px) {
-            .parallax { background-attachment: scroll; }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
         }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+        .d1 { transition-delay: 0.1s; }
+        .d2 { transition-delay: 0.2s; }
+        .d3 { transition-delay: 0.3s; }
+        .d4 { transition-delay: 0.4s; }
+        .d5 { transition-delay: 0.5s; }
+        .d6 { transition-delay: 0.6s; }
+
+        /* ── Hero particles ── */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleDrift linear infinite;
+        }
+        @keyframes particleDrift {
+            0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* ── Hero floating emojis ── */
+        @keyframes floatEmoji {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            75% { transform: translateY(10px) rotate(-5deg); }
+        }
+        .emoji-float { animation: floatEmoji 7s ease-in-out infinite; }
+
+        /* ── Shimmer ── */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        /* ── Parallax ── */
+        .parallax-bg {
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+
+        /* ── Counter animation ── */
+        .counter { display: inline-block; }
+
+        /* ── Review Carousel ── */
+        .review-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: scrollReviews 30s linear infinite;
+        }
+        .review-track:hover { animation-play-state: paused; }
+        @keyframes scrollReviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── Pulse ring ── */
+        @keyframes pulseRing {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid #D4AF37;
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        /* ── Marquee text ── */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-inner { animation: marquee 20s linear infinite; }
+
+        /* ── Responsive parallax ── */
+        @media (max-width: 768px) {
+            .parallax-bg { transform: none !important; }
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F0F0F; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
     </style>
 </head>
-<body class="font-body text-gray-800 bg-mekong-light">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-mekong-dark/95 backdrop-blur-md transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center">
-                    <span class="text-2xl font-display font-bold text-white">
-                        <span class="gold-gradient">Mekong</span>
-                    </span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-mekong-gold transition-colors">Home</a>
-                    <a href="#about" class="nav-link text-white hover:text-mekong-gold transition-colors">Über uns</a>
-                    <a href="#hours" class="nav-link text-white hover:text-mekong-gold transition-colors">Öffnungszeiten</a>
-                    <a href="#contact" class="nav-link text-white hover:text-mekong-gold transition-colors">Kontakt</a>
-                    <a href="#map" class="bg-mekong-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition-all transform hover:scale-105">
-                        Route
-                    </a>
-                </div>
-                <button class="md:hidden text-white" id="menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-mekong-dark/98" id="mobile-menu">
-            <div class="px-4 py-4 space-y-3">
-                <a href="#home" class="block text-white hover:text-mekong-gold">Home</a>
-                <a href="#about" class="block text-white hover:text-mekong-gold">Über uns</a>
-                <a href="#hours" class="block text-white hover:text-mekong-gold">Öffnungszeiten</a>
-                <a href="#contact" class="block text-white hover:text-mekong-gold">Kontakt</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-20 left-10 w-64 h-64 bg-mekong-red rounded-full filter blur-3xl animate-pulse-slow"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-mekong-gold rounded-full filter blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
-        </div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute top-1/4 left-1/4 text-6xl opacity-10 animate-float">🥢</div>
-        <div class="absolute top-1/3 right-1/4 text-5xl opacity-10 animate-float" style="animation-delay: 1s;">🍜</div>
-        <div class="absolute bottom-1/3 left-1/3 text-4xl opacity-10 animate-float" style="animation-delay: 2s;">🍲</div>
-        
-        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <div class="opacity-0 animate-slide-up">
-                <p class="text-mekong-gold uppercase tracking-[0.3em] mb-4">Authentische Vietnamesische Küche</p>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-6 opacity-0 animate-slide-up stagger-1">
-                Asia Bistro <span class="gold-gradient">Mekong</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 opacity-0 animate-slide-up stagger-2">
-                Erleben Sie die authentischen Aromen Vietnams in Reiskirchen bei Gießen
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-slide-up stagger-3">
-                <a href="#map" class="bg-mekong-red text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 hover:shadow-lg">
-                    Jetzt Besuchen
-                </a>
-                <a href="tel:064089694251" class="border-2 border-mekong-gold text-mekong-gold px-8 py-4 rounded-full text-lg font-semibold hover:bg-mekong-gold hover:text-mekong-dark transition-all transform hover:scale-105">
+<body class="font-body text-gray-800 bg-mk-cream">
+
+<!-- ════════════════════════════════════════ NAVIGATION ════════════════════════════════════════ -->
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-mk-red to-mk-red-deep flex items-center justify-center text-white font-display font-bold text-lg group-hover:scale-110 transition-transform">M</div>
+                <span class="text-xl font-display font-bold text-white tracking-wide">
+                    Asia Bistro <span class="txt-gold">Mekong</span>
+                </span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="nav-item text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors">Über uns</a>
+                <a href="#hours" class="nav-item text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors">Zeiten</a>
+                <a href="#reviews" class="nav-item text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors">Bewertungen</a>
+                <a href="#contact" class="nav-item text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors">Kontakt</a>
+                <a href="tel:064089694251" class="ml-2 bg-mk-red hover:bg-mk-red-deep text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-mk-red/20">
                     📞 Anrufen
                 </a>
             </div>
-            
-            <!-- Rating Badge -->
-            <div class="mt-12 opacity-0 animate-slide-up stagger-4">
-                <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-                    <span class="text-yellow-400 text-2xl mr-2">⭐</span>
-                    <span class="text-white font-semibold text-lg">4,4</span>
-                    <span class="text-gray-400 ml-2">(211 Bewertungen)</span>
+
+            <!-- Mobile burger -->
+            <button id="burger" class="md:hidden text-white p-2" aria-label="Menü öffnen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+        <div class="bg-mk-dark/98 backdrop-blur-xl border-t border-white/5 px-6 py-6 space-y-4">
+            <a href="#about" class="block text-white/80 hover:text-mk-gold transition-colors font-medium">Über uns</a>
+            <a href="#hours" class="block text-white/80 hover:text-mk-gold transition-colors font-medium">Öffnungszeiten</a>
+            <a href="#reviews" class="block text-white/80 hover:text-mk-gold transition-colors font-medium">Bewertungen</a>
+            <a href="#contact" class="block text-white/80 hover:text-mk-gold transition-colors font-medium">Kontakt</a>
+            <a href="tel:064089694251" class="inline-block bg-mk-red text-white px-6 py-3 rounded-full font-semibold mt-2">📞 Jetzt Anrufen</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ════════════════════════════════════════ HERO ════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-mk-dark">
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-mk-dark via-mk-dark-2 to-mk-dark"></div>
+        <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-mk-red/15 rounded-full blur-[120px] animate-pulse" style="animation-duration:6s;"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-mk-gold/10 rounded-full blur-[100px] animate-pulse" style="animation-duration:8s;animation-delay:2s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-mk-red-deep/5 rounded-full blur-[150px] animate-pulse" style="animation-duration:10s;animation-delay:4s;"></div>
+    </div>
+
+    <!-- Particles container -->
+    <div id="particles" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+
+    <!-- Floating food emojis -->
+    <div class="absolute top-[15%] left-[8%] text-5xl opacity-[0.07] emoji-float select-none">🥢</div>
+    <div class="absolute top-[25%] right-[12%] text-6xl opacity-[0.07] emoji-float select-none" style="animation-delay:1.5s;">🍜</div>
+    <div class="absolute bottom-[25%] left-[15%] text-4xl opacity-[0.07] emoji-float select-none" style="animation-delay:3s;">🍲</div>
+    <div class="absolute bottom-[35%] right-[8%] text-5xl opacity-[0.07] emoji-float select-none" style="animation-delay:4.5s;">🌿</div>
+    <div class="absolute top-[60%] left-[45%] text-3xl opacity-[0.05] emoji-float select-none" style="animation-delay:2s;">🥡</div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+        <div class="reveal d1">
+            <span class="inline-block text-mk-gold/80 text-sm md:text-base uppercase tracking-[0.35em] font-medium mb-6 border border-mk-gold/20 px-5 py-2 rounded-full">
+                Authentische Vietnamesische Küche
+            </span>
+        </div>
+
+        <h1 class="reveal d2 text-5xl sm:text-6xl md:text-8xl font-display font-bold text-white mb-6 leading-[1.1]">
+            Asia Bistro<br><span class="txt-gold">Mekong</span>
+        </h1>
+
+        <p class="reveal d3 text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Erleben Sie die authentischen Aromen Vietnams – frisch zubereitet mit Liebe und Tradition, mitten in Reiskirchen bei Gießen.
+        </p>
+
+        <div class="reveal d4 flex flex-col sm:flex-row gap-4 justify-center mb-14">
+            <a href="#contact" class="group relative bg-gradient-to-r from-mk-red to-mk-red-deep text-white px-10 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 hover:shadow-2xl hover:shadow-mk-red/30 overflow-hidden">
+                <span class="relative z-10">Jetzt Besuchen</span>
+                <div class="absolute inset-0 shimmer"></div>
+            </a>
+            <a href="tel:064089694251" class="border-2 border-mk-gold/50 text-mk-gold px-10 py-4 rounded-full text-lg font-semibold hover:bg-mk-gold hover:text-mk-dark transition-all hover:scale-105">
+                📞 06408 9694251
+            </a>
+        </div>
+
+        <!-- Rating badge -->
+        <div class="reveal d5">
+            <div class="inline-flex items-center gap-3 glass rounded-full px-8 py-4">
+                <div class="flex gap-0.5">
+                    <span class="text-yellow-400 text-xl">★</span>
+                    <span class="text-yellow-400 text-xl">★</span>
+                    <span class="text-yellow-400 text-xl">★</span>
+                    <span class="text-yellow-400 text-xl">★</span>
+                    <span class="text-yellow-400/50 text-xl">★</span>
                 </div>
+                <span class="text-white font-bold text-xl">4,4</span>
+                <span class="text-white/40">|</span>
+                <span class="text-white/50 text-sm">211 Google Bewertungen</span>
             </div>
         </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
-        </div>
-    </section>
+    </div>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="reveal">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold text-mekong-dark mb-6">
-                        Tradition trifft <span class="text-mekong-red">Moderne</span>
-                    </h2>
-                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        Willkommen im Asia Bistro Mekong – wo traditionelle vietnamesische Rezepte auf moderne Kochkunst treffen. 
-                        Wir verwenden nur die frischesten Zutaten und authentische Gewürze aus Vietnam.
-                    </p>
-                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                        Unser Team kreiert mit Leidenschaft und Hingabe jedes Gericht – von klassischen 
-                        Pho-Suppen bis zu modernen Fusion-Gerichten.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-mekong-light px-6 py-4 rounded-xl card-hover">
-                            <p class="text-3xl font-bold text-mekong-red">10+</p>
-                            <p class="text-gray-600">Jahre Erfahrung</p>
-                        </div>
-                        <div class="bg-mekong-light px-6 py-4 rounded-xl card-hover">
-                            <p class="text-3xl font-bold text-mekong-red">50+</p>
-                            <p class="text-gray-600">Gerichte</p>
-                        </div>
-                        <div class="bg-mekong-light px-6 py-4 rounded-xl card-hover">
-                            <p class="text-3xl font-bold text-mekong-red">211</p>
-                            <p class="text-gray-600">Bewertungen</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal stagger-2">
-                    <div class="relative">
-                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-mekong-gold rounded-2xl"></div>
-                        <div class="bg-gradient-to-br from-mekong-red to-red-800 rounded-2xl p-8 text-white relative overflow-hidden">
-                            <div class="text-center">
-                                <p class="text-6xl mb-4">🍜</p>
-                                <p class="text-2xl font-display font-bold">Phở</p>
-                                <p class="text-red-200">Traditionelle Reissuppe</p>
-                            </div>
-                            <div class="absolute -bottom-4 -right-4 text-9xl opacity-20">🥢</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <span class="text-white/30 text-xs uppercase tracking-widest">Scroll</span>
+        <svg class="w-5 h-5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </div>
+</section>
 
-    <!-- Hours Section -->
-    <section id="hours" class="py-24 bg-mekong-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">
-                    Öffnungs<span class="text-mekong-gold">zeiten</span>
+<!-- ════════════════════════ MARQUEE DIVIDER ════════════════════════ -->
+<div class="bg-mk-red py-3 overflow-hidden">
+    <div class="marquee-inner whitespace-nowrap flex gap-12 text-white/90 font-medium text-sm">
+        <span>🍜 Phở &nbsp;•&nbsp; Bánh Mì &nbsp;•&nbsp; Bún Bò Huế &nbsp;•&nbsp; Frühlingsrollen &nbsp;•&nbsp; Gebratene Nudeln &nbsp;•&nbsp; Curry &nbsp;•&nbsp; Sommerrollen &nbsp;•&nbsp; Reisgerichte &nbsp;•&nbsp; Wok-Spezialitäten &nbsp;•&nbsp;</span>
+        <span>🍜 Phở &nbsp;•&nbsp; Bánh Mì &nbsp;•&nbsp; Bún Bò Huế &nbsp;•&nbsp; Frühlingsrollen &nbsp;•&nbsp; Gebratene Nudeln &nbsp;•&nbsp; Curry &nbsp;•&nbsp; Sommerrollen &nbsp;•&nbsp; Reisgerichte &nbsp;•&nbsp; Wok-Spezialitäten &nbsp;•&nbsp;</span>
+    </div>
+</div>
+
+<!-- ════════════════════════════════════════ ÜBER UNS ════════════════════════════════════════ -->
+<section id="about" class="py-28 bg-mk-cream relative overflow-hidden">
+    <!-- Decorative circle -->
+    <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full border border-mk-gold/10"></div>
+    <div class="absolute -bottom-20 -left-20 w-60 h-60 rounded-full border border-mk-red/5"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <!-- Text -->
+            <div>
+                <span class="reveal text-mk-red font-semibold text-sm uppercase tracking-[0.2em] mb-4 block">Über uns</span>
+                <h2 class="reveal d1 text-4xl md:text-5xl lg:text-6xl font-display font-bold text-mk-dark leading-[1.15] mb-8">
+                    Tradition trifft<br><span class="text-mk-red">Geschmack</span>
                 </h2>
-                <p class="text-gray-400 text-lg">Wir freuen uns auf Ihren Besuch</p>
-            </div>
-            
-            <div class="grid md:grid-cols-7 gap-4 reveal stagger-1">
-                <!-- Monday -->
-                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10">
-                    <p class="text-gray-400 uppercase tracking-wider mb-2">Montag</p>
-                    <p class="text-2xl font-bold text-gray-500">Geschlossen</p>
-                </div>
-                
-                <!-- Tuesday -->
-                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
-                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Dienstag</p>
-                    <p class="text-2xl font-bold text-white">11:30</p>
-                    <p class="text-gray-400">-</p>
-                    <p class="text-2xl font-bold text-white">20:30</p>
-                </div>
-                
-                <!-- Wednesday -->
-                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
-                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Mittwoch</p>
-                    <p class="text-2xl font-bold text-white">11:30</p>
-                    <p class="text-gray-400">-</p>
-                    <p class="text-2xl font-bold text-white">20:30</p>
-                </div>
-                
-                <!-- Thursday -->
-                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
-                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Donnerstag</p>
-                    <p class="text-2xl font-bold text-white">11:30</p>
-                    <p class="text-gray-400">-</p>
-                    <p class="text-2xl font-bold text-white">20:30</p>
-                </div>
-                
-                <!-- Friday -->
-                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
-                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Freitag</p>
-                    <p class="text-2xl font-bold text-white">11:30</p>
-                    <p class="text-gray-400">-</p>
-                    <p class="text-2xl font-bold text-white">20:30</p>
-                </div>
-                
-                <!-- Saturday -->
-                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
-                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Samstag</p>
-                    <p class="text-2xl font-bold text-white">11:30</p>
-                    <p class="text-gray-400">-</p>
-                    <p class="text-2xl font-bold text-white">20:30</p>
-                </div>
-                
-                <!-- Sunday -->
-                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
-                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Sonntag</p>
-                    <p class="text-2xl font-bold text-white">11:30</p>
-                    <p class="text-gray-400">-</p>
-                    <p class="text-2xl font-bold text-white">20:30</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <p class="reveal d2 text-gray-600 text-lg leading-relaxed mb-6">
+                    Willkommen im Asia Bistro Mekong – wo traditionelle vietnamesische Rezepte auf moderne Kochkunst treffen.
+                    Wir verwenden ausschließlich frische Zutaten und authentische Gewürze, importiert aus Vietnam.
+                </p>
+                <p class="reveal d3 text-gray-600 text-lg leading-relaxed mb-10">
+                    Unser Küchenteam kreiert jedes Gericht mit Leidenschaft – von aromatischen Phở-Suppen über
+                    knusprige Frühlingsrollen bis hin zu würzigen Wok-Gerichten.
+                </p>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-mekong-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div class="reveal">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold text-mekong-dark mb-6">
-                        Kontakt & <span class="text-mekong-red">Anfahrt</span>
-                    </h2>
-                    <p class="text-gray-600 text-lg mb-8">Wir freuen uns auf Ihren Besuch in unserem Restaurant.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start card-hover bg-white p-6 rounded-xl shadow-lg">
-                            <div class="w-12 h-12 bg-mekong-red/10 rounded-full flex items-center justify-center mr-4">
-                                <span class="text-2xl">📍</span>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-lg text-mekong-dark">Adresse</h3>
-                                <p class="text-gray-600">Grünberger Str. 29</p>
-                                <p class="text-gray-600">35447 Reiskirchen</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start card-hover bg-white p-6 rounded-xl shadow-lg">
-                            <div class="w-12 h-12 bg-mekong-red/10 rounded-full flex items-center justify-center mr-4">
-                                <span class="text-2xl">📞</span>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-lg text-mekong-dark">Telefon</h3>
-                                <a href="tel:064089694251" class="text-mekong-red hover:text-red-700 text-lg font-medium">
-                                    06408 9694251
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start card-hover bg-white p-6 rounded-xl shadow-lg">
-                            <div class="w-12 h-12 bg-mekong-red/10 rounded-full flex items-center justify-center mr-4">
-                                <span class="text-2xl">⭐</span>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-lg text-mekong-dark">Bewertung</h3>
-                                <p class="text-gray-600">4,4 Sterne</p>
-                                <p class="text-gray-500 text-sm">211 Bewertungen</p>
-                            </div>
-                        </div>
+                <!-- Stats -->
+                <div class="reveal d4 grid grid-cols-3 gap-4">
+                    <div class="bg-white rounded-2xl p-5 text-center lift shadow-sm">
+                        <p class="text-3xl md:text-4xl font-bold text-mk-red mb-1"><span class="counter" data-target="10">0</span>+</p>
+                        <p class="text-gray-500 text-sm">Jahre Erfahrung</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 text-center lift shadow-sm">
+                        <p class="text-3xl md:text-4xl font-bold text-mk-red mb-1"><span class="counter" data-target="50">0</span>+</p>
+                        <p class="text-gray-500 text-sm">Gerichte</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 text-center lift shadow-sm">
+                        <p class="text-3xl md:text-4xl font-bold text-mk-red mb-1"><span class="counter" data-target="211">0</span></p>
+                        <p class="text-gray-500 text-sm">Bewertungen</p>
                     </div>
                 </div>
-                
-                <div class="reveal stagger-2" id="map">
-                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-[400px] relative">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2556.5!2d8.85!3d50.58!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bc5e3d5f4c4f4f%3A0x1234567890abcdef!2sGr%C3%BCnberger%20Str.%2029%2C%2035447%20Reiskirchen!5e0!3m2!1sde!2sde!4v1234567890"
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" class="absolute bottom-4 right-4 bg-mekong-red text-white px-4 py-2 rounded-full shadow-lg hover:bg-red-700 transition-all">
-                            In Google Maps öffnen →
-                        </a>
+            </div>
+
+            <!-- Visual Card -->
+            <div class="reveal-right d2 relative">
+                <div class="absolute -top-6 -left-6 w-full h-full rounded-3xl border-2 border-mk-gold/30"></div>
+                <div class="relative bg-gradient-to-br from-mk-dark via-mk-dark-2 to-mk-dark-3 rounded-3xl p-10 overflow-hidden glow-red">
+                    <!-- Decorative circles -->
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-mk-red/10 rounded-full blur-2xl"></div>
+                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-mk-gold/10 rounded-full blur-2xl"></div>
+
+                    <div class="relative grid grid-cols-2 gap-6">
+                        <div class="bg-white/5 rounded-2xl p-6 text-center border border-white/5 hover:border-mk-gold/30 transition-colors">
+                            <span class="text-5xl block mb-3">🍜</span>
+                            <p class="text-white font-display font-semibold text-lg">Phở</p>
+                            <p class="text-white/40 text-sm mt-1">Traditionelle Suppe</p>
+                        </div>
+                        <div class="bg-white/5 rounded-2xl p-6 text-center border border-white/5 hover:border-mk-gold/30 transition-colors">
+                            <span class="text-5xl block mb-3">🥟</span>
+                            <p class="text-white font-display font-semibold text-lg">Gyoza</p>
+                            <p class="text-white/40 text-sm mt-1">Knusprige Teigtaschen</p>
+                        </div>
+                        <div class="bg-white/5 rounded-2xl p-6 text-center border border-white/5 hover:border-mk-gold/30 transition-colors">
+                            <span class="text-5xl block mb-3">🍛</span>
+                            <p class="text-white font-display font-semibold text-lg">Curry</p>
+                            <p class="text-white/40 text-sm mt-1">Cremig & würzig</p>
+                        </div>
+                        <div class="bg-white/5 rounded-2xl p-6 text-center border border-white/5 hover:border-mk-gold/30 transition-colors">
+                            <span class="text-5xl block mb-3">🥢</span>
+                            <p class="text-white font-display font-semibold text-lg">Wok</p>
+                            <p class="text-white/40 text-sm mt-1">Frisch aus dem Wok</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CTA Section -->
-    <section class="py-24 bg-gradient-to-r from-mekong-red to-red-800 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full filter blur-3xl"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-mekong-gold rounded-full filter blur-3xl"></div>
-        </div>
-        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6 reveal">
-                Probieren Sie unsere Spezialitäten!
+<!-- ════════════════════════════════════════ ÖFFNUNGSZEITEN ════════════════════════════════════════ -->
+<section id="hours" class="py-28 bg-mk-dark relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute top-0 left-0 w-full h-full">
+        <div class="absolute top-1/4 right-0 w-96 h-96 bg-mk-red/5 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-mk-gold/5 rounded-full blur-[80px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+            <span class="reveal text-mk-gold font-semibold text-sm uppercase tracking-[0.2em] mb-4 block">Besuchen Sie uns</span>
+            <h2 class="reveal d1 text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white">
+                Öffnungs<span class="txt-gold">zeiten</span>
             </h2>
-            <p class="text-xl text-red-100 mb-8 reveal stagger-1">
-                Von klassischem Phở bis zu kreativen vietnamesischen Gerichten – wir freuen uns auf Sie!
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal stagger-2">
-                <a href="tel:064089694251" class="bg-white text-mekong-red px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-                    📞 Jetzt Anrufen
-                </a>
-                <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-mekong-red transition-all transform hover:scale-105">
-                    📍 Route Planen
-                </a>
+        </div>
+
+        <!-- Days Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 reveal d2">
+            <!-- Monday -->
+            <div class="glass rounded-2xl p-6 text-center opacity-50">
+                <p class="text-white/40 text-xs uppercase tracking-widest mb-3">Mo</p>
+                <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-3">
+                    <svg class="w-5 h-5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </div>
+                <p class="text-white/40 font-semibold text-sm">Ruhetag</p>
+            </div>
+            <!-- Tue-Sun -->
+            <div class="glass rounded-2xl p-6 text-center border-mk-gold/20 hover:border-mk-gold/40 transition-colors group">
+                <p class="text-mk-gold text-xs uppercase tracking-widest mb-3">Di</p>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">11:30</p>
+                <div class="w-4 h-px bg-mk-gold/30 mx-auto my-2"></div>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">20:30</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center border-mk-gold/20 hover:border-mk-gold/40 transition-colors group">
+                <p class="text-mk-gold text-xs uppercase tracking-widest mb-3">Mi</p>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">11:30</p>
+                <div class="w-4 h-px bg-mk-gold/30 mx-auto my-2"></div>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">20:30</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center border-mk-gold/20 hover:border-mk-gold/40 transition-colors group">
+                <p class="text-mk-gold text-xs uppercase tracking-widest mb-3">Do</p>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">11:30</p>
+                <div class="w-4 h-px bg-mk-gold/30 mx-auto my-2"></div>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">20:30</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center border-mk-gold/20 hover:border-mk-gold/40 transition-colors group">
+                <p class="text-mk-gold text-xs uppercase tracking-widest mb-3">Fr</p>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">11:30</p>
+                <div class="w-4 h-px bg-mk-gold/30 mx-auto my-2"></div>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">20:30</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center border-mk-gold/20 hover:border-mk-gold/40 transition-colors group">
+                <p class="text-mk-gold text-xs uppercase tracking-widest mb-3">Sa</p>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">11:30</p>
+                <div class="w-4 h-px bg-mk-gold/30 mx-auto my-2"></div>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">20:30</p>
+            </div>
+            <div class="glass rounded-2xl p-6 text-center border-mk-gold/20 hover:border-mk-gold/40 transition-colors group">
+                <p class="text-mk-gold text-xs uppercase tracking-widest mb-3">So</p>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">11:30</p>
+                <div class="w-4 h-px bg-mk-gold/30 mx-auto my-2"></div>
+                <p class="text-white text-2xl font-bold group-hover:text-mk-gold transition-colors">20:30</p>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-mekong-dark py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
-                <div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-4">
-                        <span class="gold-gradient">Mekong</span>
-                    </h3>
-                    <p class="text-gray-400">Authentische vietnamesische Küche in Reiskirchen</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Schnelllinks</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-mekong-gold transition-colors">Startseite</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-mekong-gold transition-colors">Über uns</a></li>
-                        <li><a href="#hours" class="text-gray-400 hover:text-mekong-gold transition-colors">Öffnungszeiten</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-mekong-gold transition-colors">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Kontakt</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Grünberger Str. 29</li>
-                        <li>35447 Reiskirchen</li>
-                        <li>06408 9694251</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-                <p>© 2024 Asia Bistro Mekong. Alle Rechte vorbehalten.</p>
+        <!-- Current status indicator -->
+        <div class="reveal d3 text-center mt-10">
+            <div id="open-status" class="inline-flex items-center gap-3 glass rounded-full px-6 py-3">
+                <span id="status-dot" class="relative w-3 h-3 rounded-full bg-green-500">
+                    <span class="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></span>
+                </span>
+                <span id="status-text" class="text-white/70 text-sm font-medium">Wir prüfen...</span>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Scroll Reveal Script -->
-    <script>
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
+<!-- ════════════════════════════════════════ BEWERTUNGEN ════════════════════════════════════════ -->
+<section id="reviews" class="py-28 bg-mk-cream relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <span class="reveal text-mk-red font-semibold text-sm uppercase tracking-[0.2em] mb-4 block">Das sagen unsere Gäste</span>
+            <h2 class="reveal d1 text-4xl md:text-5xl lg:text-6xl font-display font-bold text-mk-dark">
+                Bewertungen
+            </h2>
+        </div>
+
+        <!-- Big Rating -->
+        <div class="reveal d2 flex flex-col items-center mb-16">
+            <div class="relative pulse-ring">
+                <div class="w-32 h-32 rounded-full bg-gradient-to-br from-mk-red to-mk-red-deep flex items-center justify-center shadow-2xl">
+                    <div class="text-center">
+                        <p class="text-white text-4xl font-bold">4,4</p>
+                        <p class="text-white/60 text-xs">/ 5.0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-1 mt-6 mb-2">
+                <span class="text-yellow-500 text-2xl">★★★★</span><span class="text-yellow-500/40 text-2xl">★</span>
+            </div>
+            <p class="text-gray-500">Basierend auf <strong class="text-mk-dark">211</strong> Google Bewertungen</p>
+        </div>
+
+        <!-- Review Carousel -->
+        <div class="reveal d3 overflow-hidden -mx-4 px-4">
+            <div class="review-track">
+                <!-- Review cards (duplicated for seamless scroll) -->
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Absolut fantastisch! Die Phở ist die beste, die ich jemals außerhalb Vietnams gegessen habe. Sehr freundliches Personal."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-mk-red/10 flex items-center justify-center text-mk-red font-bold text-sm">M</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Marco W.</p><p class="text-xs text-gray-400">vor 2 Wochen</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Immer frisch, immer lecker! Die Frühlingsrollen sind ein Traum. Wir kommen jede Woche hierher."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-mk-gold/10 flex items-center justify-center text-mk-gold font-bold text-sm">S</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Sandra K.</p><p class="text-xs text-gray-400">vor 1 Monat</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★</span><span class="text-yellow-500/30">★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Super Preis-Leistungs-Verhältnis. Große Portionen und wirklich authentischer Geschmack. Kann ich nur empfehlen!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-sm">T</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Thomas L.</p><p class="text-xs text-gray-400">vor 3 Wochen</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Mein absoluter Lieblingsasiater in der Region! Die gebratenen Nudeln sind himmlisch gut. Top Service!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">L</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Lisa M.</p><p class="text-xs text-gray-400">vor 2 Monaten</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Wunderbar authentisch. Die Suppen sind perfekt gewürzt und die Zutaten immer frisch. Ein Geheimtipp!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">J</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Jens B.</p><p class="text-xs text-gray-400">vor 1 Monat</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★</span><span class="text-yellow-500/30">★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Tolle Atmosphäre, schneller Service. Die Curry-Gerichte sind besonders gut. Wir kommen gerne wieder!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-sm">A</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Anna F.</p><p class="text-xs text-gray-400">vor 3 Wochen</p></div>
+                    </div>
+                </div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Absolut fantastisch! Die Phở ist die beste, die ich jemals außerhalb Vietnams gegessen habe. Sehr freundliches Personal."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-mk-red/10 flex items-center justify-center text-mk-red font-bold text-sm">M</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Marco W.</p><p class="text-xs text-gray-400">vor 2 Wochen</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Immer frisch, immer lecker! Die Frühlingsrollen sind ein Traum. Wir kommen jede Woche hierher."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-mk-gold/10 flex items-center justify-center text-mk-gold font-bold text-sm">S</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Sandra K.</p><p class="text-xs text-gray-400">vor 1 Monat</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★</span><span class="text-yellow-500/30">★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Super Preis-Leistungs-Verhältnis. Große Portionen und wirklich authentischer Geschmack. Kann ich nur empfehlen!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-sm">T</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Thomas L.</p><p class="text-xs text-gray-400">vor 3 Wochen</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Mein absoluter Lieblingsasiater in der Region! Die gebratenen Nudeln sind himmlisch gut. Top Service!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">L</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Lisa M.</p><p class="text-xs text-gray-400">vor 2 Monaten</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Wunderbar authentisch. Die Suppen sind perfekt gewürzt und die Zutaten immer frisch. Ein Geheimtipp!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">J</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Jens B.</p><p class="text-xs text-gray-400">vor 1 Monat</p></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] bg-white rounded-2xl p-6 shadow-sm lift">
+                    <div class="flex gap-1 mb-3"><span class="text-yellow-500">★★★★</span><span class="text-yellow-500/30">★</span></div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">"Tolle Atmosphäre, schneller Service. Die Curry-Gerichte sind besonders gut. Wir kommen gerne wieder!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-sm">A</div>
+                        <div><p class="font-semibold text-sm text-mk-dark">Anna F.</p><p class="text-xs text-gray-400">vor 3 Wochen</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google CTA -->
+        <div class="reveal d4 text-center mt-12">
+            <a href="https://www.google.com/maps/place/Asia+Bistro+Mekong/" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-white rounded-full px-8 py-4 shadow-md hover:shadow-xl transition-all hover:scale-105 text-mk-dark font-semibold">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                Alle Bewertungen auf Google ansehen
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════ KONTAKT & KARTE ════════════════════════════════════════ -->
+<section id="contact" class="py-28 bg-mk-dark relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-mk-red/5 rounded-full blur-[120px]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+            <span class="reveal text-mk-gold font-semibold text-sm uppercase tracking-[0.2em] mb-4 block">So finden Sie uns</span>
+            <h2 class="reveal d1 text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white">
+                Kontakt & <span class="txt-gold">Anfahrt</span>
+            </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Contact Cards -->
+            <div class="space-y-5">
+                <div class="reveal d1 glass rounded-2xl p-6 flex items-start gap-5 lift">
+                    <div class="w-14 h-14 rounded-2xl bg-mk-red/20 flex items-center justify-center shrink-0">
+                        <span class="text-2xl">📍</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-lg mb-1">Adresse</h3>
+                        <p class="text-white/60">Grünberger Str. 29</p>
+                        <p class="text-white/60">35447 Reiskirchen</p>
+                    </div>
+                </div>
+
+                <div class="reveal d2 glass rounded-2xl p-6 flex items-start gap-5 lift">
+                    <div class="w-14 h-14 rounded-2xl bg-mk-gold/20 flex items-center justify-center shrink-0">
+                        <span class="text-2xl">📞</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-lg mb-1">Telefon</h3>
+                        <a href="tel:064089694251" class="text-mk-gold hover:text-mk-gold-light text-xl font-semibold transition-colors">
+                            06408 9694251
+                        </a>
+                        <p class="text-white/40 text-sm mt-1">Di-So: 11:30 – 20:30 Uhr</p>
+                    </div>
+                </div>
+
+                <div class="reveal d3 glass rounded-2xl p-6 flex items-start gap-5 lift">
+                    <div class="w-14 h-14 rounded-2xl bg-green-900/30 flex items-center justify-center shrink-0">
+                        <span class="text-2xl">⭐</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-lg mb-1">Bewertung</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="text-yellow-400">★★★★</span><span class="text-yellow-400/40">★</span>
+                            <span class="text-white font-bold">4,4</span>
+                        </div>
+                        <p class="text-white/40 text-sm mt-1">211 Bewertungen auf Google</p>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="reveal d4 flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="tel:064089694251" class="flex-1 bg-gradient-to-r from-mk-red to-mk-red-deep text-white px-8 py-4 rounded-2xl text-center font-semibold hover:scale-105 transition-all hover:shadow-2xl hover:shadow-mk-red/20">
+                        📞 Jetzt Anrufen
+                    </a>
+                    <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" rel="noopener"
+                       class="flex-1 border-2 border-mk-gold/40 text-mk-gold px-8 py-4 rounded-2xl text-center font-semibold hover:bg-mk-gold hover:text-mk-dark transition-all hover:scale-105">
+                        📍 Route Planen
+                    </a>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="reveal-right d2" id="map">
+                <div class="rounded-3xl overflow-hidden shadow-2xl h-[480px] relative border border-white/10">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2556.5!2d8.8283!3d50.5938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bc5e3d5f4c4f4f%3A0x1234567890abcdef!2sGr%C3%BCnberger+Str.+29%2C+35447+Reiskirchen!5e0!3m2!1sde!2sde!4v1700000000000"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Standort Asia Bistro Mekong">
+                    </iframe>
+                    <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" rel="noopener"
+                       class="absolute bottom-4 right-4 bg-white text-mk-dark px-5 py-2.5 rounded-full shadow-lg hover:shadow-xl font-semibold text-sm transition-all hover:scale-105 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════ CTA BANNER ════════════════════════════════════════ -->
+<section class="relative py-24 overflow-hidden">
+    <!-- Gradient BG -->
+    <div class="absolute inset-0 bg-gradient-to-r from-mk-red via-mk-red-deep to-mk-red"></div>
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-mk-gold rounded-full blur-[100px]"></div>
+    </div>
+    <div class="absolute inset-0 shimmer opacity-30"></div>
+
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <h2 class="reveal text-4xl md:text-5xl font-display font-bold text-white mb-6">
+            Hunger auf Vietnam?
+        </h2>
+        <p class="reveal d1 text-xl text-red-100/80 mb-10 max-w-2xl mx-auto">
+            Von klassischem Phở bis zu knusprigen Frühlingsrollen – besuchen Sie uns und erleben Sie authentische vietnamesische Küche!
+        </p>
+        <div class="reveal d2 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:064089694251" class="bg-white text-mk-red px-10 py-4 rounded-full text-lg font-bold hover:bg-mk-cream transition-all hover:scale-105 shadow-xl">
+                📞 Jetzt Anrufen
+            </a>
+            <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" rel="noopener"
+               class="border-2 border-white/70 text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-mk-red transition-all hover:scale-105">
+                📍 Route Planen
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════ FOOTER ════════════════════════════════════════ -->
+<footer class="bg-mk-dark pt-16 pb-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-12 mb-12">
+            <!-- Brand -->
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-mk-red to-mk-red-deep flex items-center justify-center text-white font-display font-bold text-lg">M</div>
+                    <span class="text-xl font-display font-bold text-white">Asia Bistro <span class="txt-gold">Mekong</span></span>
+                </div>
+                <p class="text-white/40 leading-relaxed">Authentische vietnamesische Küche in Reiskirchen bei Gießen. Frisch, lecker, traditionell.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Schnelllinks</h4>
+                <ul class="space-y-3">
+                    <li><a href="#hero" class="text-white/40 hover:text-mk-gold transition-colors">Startseite</a></li>
+                    <li><a href="#about" class="text-white/40 hover:text-mk-gold transition-colors">Über uns</a></li>
+                    <li><a href="#hours" class="text-white/40 hover:text-mk-gold transition-colors">Öffnungszeiten</a></li>
+                    <li><a href="#reviews" class="text-white/40 hover:text-mk-gold transition-colors">Bewertungen</a></li>
+                    <li><a href="#contact" class="text-white/40 hover:text-mk-gold transition-colors">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Kontakt</h4>
+                <ul class="space-y-3 text-white/40">
+                    <li class="flex items-center gap-2"><span>📍</span> Grünberger Str. 29, 35447 Reiskirchen</li>
+                    <li class="flex items-center gap-2"><span>📞</span> <a href="tel:064089694251" class="hover:text-mk-gold transition-colors">06408 9694251</a></li>
+                    <li class="flex items-center gap-2"><span>🕐</span> Di-So: 11:30 – 20:30 Uhr</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-white/25 text-sm">© 2025 Asia Bistro Mekong. Alle Rechte vorbehalten.</p>
+            <p class="text-white/15 text-xs">Designed with ❤️</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ════════════════════════════════════════ SCRIPTS ════════════════════════════════════════ -->
+<script>
+(function() {
+    'use strict';
+
+    // ── Navbar scroll effect ──
+    const nav = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y > 80) {
+            nav.style.background = 'rgba(15,15,15,0.95)';
+            nav.style.backdropFilter = 'blur(20px)';
+            nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+        } else {
+            nav.style.background = 'transparent';
+            nav.style.backdropFilter = 'none';
+            nav.style.boxShadow = 'none';
+        }
+        lastScroll = y;
+    }, { passive: true });
+
+    // ── Mobile menu ──
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    // ── Scroll Reveal ──
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+
+    // ── Counter Animation ──
+    const counters = document.querySelectorAll('.counter');
+    const counterIO = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const el = e.target;
+                const target = +el.dataset.target;
+                const duration = 2000;
+                const start = performance.now();
+                const step = (now) => {
+                    const p = Math.min((now - start) / duration, 1);
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(target * ease);
+                    if (p < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+                counterIO.unobserve(el);
             }
         });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterIO.observe(c));
 
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    // ── Particles ──
+    const particlesEl = document.getElementById('particles');
+    function createParticle() {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        const size = Math.random() * 4 + 2;
+        const x = Math.random() * 100;
+        const dur = Math.random() * 10 + 8;
+        const colors = ['rgba(196,30,58,0.3)', 'rgba(212,175,55,0.3)', 'rgba(255,255,255,0.15)'];
+        p.style.cssText = `width:${size}px;height:${size}px;left:${x}%;bottom:-10px;background:${colors[Math.floor(Math.random()*3)]};animation-duration:${dur}s;`;
+        particlesEl.appendChild(p);
+        setTimeout(() => p.remove(), dur * 1000);
+    }
+    setInterval(createParticle, 400);
 
-        // Scroll reveal animation
-        const reveals = document.querySelectorAll('.reveal');
-        
-        const revealOnScroll = () => {
-            reveals.forEach((el, index) => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add('active');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
-    </script>
+    // ── Open/Close Status ──
+    function updateStatus() {
+        const now = new Date();
+        const day = now.getDay(); // 0=Sun
+        const h = now.getHours();
+        const m = now.getMinutes();
+        const time = h * 60 + m;
+        const open = 11 * 60 + 30;
+        const close = 20 * 60 + 30;
+        const dot = document.getElementById('status-dot');
+        const txt = document.getElementById('status-text');
+        const isMonday = day === 1;
+        const isOpen = !isMonday && time >= open && time < close;
+        if (isOpen) {
+            dot.className = 'relative w-3 h-3 rounded-full bg-green-500';
+            dot.innerHTML = '<span class="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></span>';
+            txt.textContent = 'Jetzt geöffnet – bis 20:30 Uhr';
+            txt.style.color = 'rgba(134,239,172,0.9)';
+        } else {
+            dot.className = 'relative w-3 h-3 rounded-full bg-red-500';
+            dot.innerHTML = '';
+            txt.textContent = isMonday ? 'Heute Ruhetag – morgen ab 11:30 Uhr' : 'Aktuell geschlossen';
+            txt.style.color = 'rgba(252,165,165,0.9)';
+        }
+    }
+    updateStatus();
+    setInterval(updateStatus, 60000);
+
+})();
+</script>
 </body>
 </html>
