@@ -1,133 +1,491 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asia Bistro Mekong - Vietnamesisches Restaurant Gießen</title>
-  <meta name="description" content="Asia Bistro Mekong - Authentische vietnamesische Küche in Reiskirchen bei Gießen. Geöffnet Di-So 11:30-20:30. 4,4 Sterne bei 211 Bewertungen.">
-  <meta name="keywords" content="Asia Bistro Mekong, vietnamesisches Restaurant Gießen, asiatisches Restaurant Reiskirchen, Pho, Bun">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { primary: '#c2410c', accent: '#fbbf24' },
-          fontFamily: { display: ['Playfair Display', 'serif'], body: ['Source Sans 3', 'sans-serif'] }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia Bistro Mekong - Vietnamesisches Restaurant Gießen</title>
+    <meta name="description" content="Asia Bistro Mekong - Authentische vietnamesische Küche in Reiskirchen bei Gießen. 4,4 Sterne Bewertung. Jetzt bestellen!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mekong: {
+                            red: '#C41E3A',
+                            gold: '#D4AF37',
+                            dark: '#1a1a1a',
+                            light: '#f8f5f0'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        }
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .hero-bg { background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%), url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1920&q=80'); background-size: cover; background-position: center; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-  </style>
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(90deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .parallax { background-attachment: scroll; }
+        }
+    </style>
 </head>
-<body class="font-body text-gray-800 bg-stone-50">
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#" class="font-display text-xl font-bold text-primary">Asia Bistro Mekong</a>
-      <div class="flex items-center gap-6">
-        <a href="#ueber-uns" class="hidden md:block text-gray-600 hover:text-primary">Über uns</a>
-        <a href="#oeffnungszeiten" class="hidden md:block text-gray-600 hover:text-primary">Öffnungszeiten</a>
-        <a href="#kontakt" class="hidden md:block text-gray-600 hover:text-primary">Kontakt</a>
-        <a href="tel:064089694251" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-orange-800 transition">Jetzt anrufen</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero-bg min-h-screen flex items-center justify-center text-white px-4">
-    <div class="text-center py-32">
-      <h1 class="font-display text-5xl md:text-7xl font-bold mb-4 animate-fade-in-up">Asia Bistro Mekong</h1>
-      <p class="text-2xl mb-6 animate-fade-in-up opacity-0" style="animation-delay: 0.1s;">Authentische vietnamesische Küche</p>
-      <p class="text-lg text-gray-200 mb-8 max-w-xl mx-auto animate-fade-in-up opacity-0" style="animation-delay: 0.2s;">Erleben Sie die Aromen Vietnams in Reiskirchen bei Gießen</p>
-      <div class="flex gap-4 justify-center animate-fade-in-up opacity-0" style="animation-delay: 0.3s;">
-        <a href="#kontakt" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-orange-800 transition">Kontakt</a>
-        <a href="#karte" class="border-2 border-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-white hover:text-gray-900 transition">Route</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Über uns -->
-  <section id="ueber-uns" class="py-20 px-4">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="font-display text-4xl font-bold mb-6">Unsere Geschichte</h2>
-          <p class="text-lg text-gray-600 mb-4">Willkommen im <strong>Asia Bistro Mekong</strong> – Ihrem authentischen vietnamesischen Restaurant in Reiskirchen bei Gießen.</p>
-          <p class="text-lg text-gray-600 mb-6">Wir bringen Ihnen die traditionelle Küche Vietnams mit frischen Zutaten und echten Rezepten. Von klassischem Pho bis hin zu knusprigen Frühlingsrollen.</p>
-          <div class="flex gap-4 flex-wrap">
-            <div class="bg-white px-6 py-4 rounded-lg shadow-md"><p class="text-3xl font-bold text-primary">4,4</p><p class="text-gray-500 text-sm">Sterne</p></div>
-            <div class="bg-white px-6 py-4 rounded-lg shadow-md"><p class="text-3xl font-bold text-primary">211</p><p class="text-gray-500 text-sm">Bewertungen</p></div>
-          </div>
+<body class="font-body text-gray-800 bg-mekong-light">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-mekong-dark/95 backdrop-blur-md transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl font-display font-bold text-white">
+                        <span class="gold-gradient">Mekong</span>
+                    </span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-mekong-gold transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-white hover:text-mekong-gold transition-colors">Über uns</a>
+                    <a href="#hours" class="nav-link text-white hover:text-mekong-gold transition-colors">Öffnungszeiten</a>
+                    <a href="#contact" class="nav-link text-white hover:text-mekong-gold transition-colors">Kontakt</a>
+                    <a href="#map" class="bg-mekong-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition-all transform hover:scale-105">
+                        Route
+                    </a>
+                </div>
+                <button class="md:hidden text-white" id="menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="Vietnamesische Küche" class="rounded-2xl shadow-2xl w-full">
-      </div>
-    </div>
-  </section>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-mekong-dark/98" id="mobile-menu">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block text-white hover:text-mekong-gold">Home</a>
+                <a href="#about" class="block text-white hover:text-mekong-gold">Über uns</a>
+                <a href="#hours" class="block text-white hover:text-mekong-gold">Öffnungszeiten</a>
+                <a href="#contact" class="block text-white hover:text-mekong-gold">Kontakt</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Öffnungszeiten -->
-  <section id="oeffnungszeiten" class="py-20 bg-stone-900 text-white px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-display text-4xl font-bold mb-8">Öffnungszeiten</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-stone-800 rounded-2xl p-8">
-          <h3 class="font-display text-2xl font-bold mb-4">Restaurant</h3>
-          <ul class="space-y-3 text-left">
-            <li class="flex justify-between py-2 border-b border-stone-700"><span>Montag</span><span class="text-red-400">Geschlossen</span></li>
-            <li class="flex justify-between py-2 border-b border-stone-700"><span>Dienstag - Sonntag</span><span class="text-white font-medium">11:30 - 20:30</span></li>
-          </ul>
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-mekong-red rounded-full filter blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-mekong-gold rounded-full filter blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
         </div>
-        <div class="bg-stone-800 rounded-2xl p-8">
-          <h3 class="font-display text-2xl font-bold mb-4">Kontakt</h3>
-          <ul class="space-y-3 text-left">
-            <li class="py-2 border-b border-stone-700"><span class="text-gray-400">Telefon</span><br><a href="tel:064089694251" class="text-primary hover:text-accent">06408 9694251</a></li>
-            <li class="py-2"><span class="text-gray-400">Adresse</span><br><span class="text-white">Grünberger Str. 29<br>35447 Reiskirchen</span></li>
-          </ul>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-1/4 left-1/4 text-6xl opacity-10 animate-float">🥢</div>
+        <div class="absolute top-1/3 right-1/4 text-5xl opacity-10 animate-float" style="animation-delay: 1s;">🍜</div>
+        <div class="absolute bottom-1/3 left-1/3 text-4xl opacity-10 animate-float" style="animation-delay: 2s;">🍲</div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div class="opacity-0 animate-slide-up">
+                <p class="text-mekong-gold uppercase tracking-[0.3em] mb-4">Authentische Vietnamesische Küche</p>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-6 opacity-0 animate-slide-up stagger-1">
+                Asia Bistro <span class="gold-gradient">Mekong</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 opacity-0 animate-slide-up stagger-2">
+                Erleben Sie die authentischen Aromen Vietnams in Reiskirchen bei Gießen
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-slide-up stagger-3">
+                <a href="#map" class="bg-mekong-red text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 hover:shadow-lg">
+                    Jetzt Besuchen
+                </a>
+                <a href="tel:064089694251" class="border-2 border-mekong-gold text-mekong-gold px-8 py-4 rounded-full text-lg font-semibold hover:bg-mekong-gold hover:text-mekong-dark transition-all transform hover:scale-105">
+                    📞 Anrufen
+                </a>
+            </div>
+            
+            <!-- Rating Badge -->
+            <div class="mt-12 opacity-0 animate-slide-up stagger-4">
+                <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+                    <span class="text-yellow-400 text-2xl mr-2">⭐</span>
+                    <span class="text-white font-semibold text-lg">4,4</span>
+                    <span class="text-gray-400 ml-2">(211 Bewertungen)</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
 
-  <!-- Kontakt & Karte -->
-  <section id="kontakt" class="py-20 px-4">
-    <div class="max-w-7xl mx-auto text-center">
-      <h2 class="font-display text-4xl font-bold mb-8">Kontakt & Anfahrt</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-2xl p-8 shadow-lg">
-          <h3 class="font-display text-2xl font-bold mb-4">Kontakt</h3>
-          <p class="mb-2"><strong>Asia Bistro Mekong</strong></p>
-          <p class="mb-2">Grünberger Str. 29</p>
-          <p class="mb-4">35447 Reiskirchen</p>
-          <p class="mb-2"><a href="tel:064089694251" class="text-primary hover:underline">06408 9694251</a></p>
-          <div class="mt-6 flex gap-4 justify-center">
-            <a href="tel:064089694251" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-orange-800 transition">Anrufen</a>
-            <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition">Route planen</a>
-          </div>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-mekong-dark mb-6">
+                        Tradition trifft <span class="text-mekong-red">Moderne</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Willkommen im Asia Bistro Mekong – wo traditionelle vietnamesische Rezepte auf moderne Kochkunst treffen. 
+                        Wir verwenden nur die frischesten Zutaten und authentische Gewürze aus Vietnam.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        Unser Team kreiert mit Leidenschaft und Hingabe jedes Gericht – von klassischen 
+                        Pho-Suppen bis zu modernen Fusion-Gerichten.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-mekong-light px-6 py-4 rounded-xl card-hover">
+                            <p class="text-3xl font-bold text-mekong-red">10+</p>
+                            <p class="text-gray-600">Jahre Erfahrung</p>
+                        </div>
+                        <div class="bg-mekong-light px-6 py-4 rounded-xl card-hover">
+                            <p class="text-3xl font-bold text-mekong-red">50+</p>
+                            <p class="text-gray-600">Gerichte</p>
+                        </div>
+                        <div class="bg-mekong-light px-6 py-4 rounded-xl card-hover">
+                            <p class="text-3xl font-bold text-mekong-red">211</p>
+                            <p class="text-gray-600">Bewertungen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal stagger-2">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-mekong-gold rounded-2xl"></div>
+                        <div class="bg-gradient-to-br from-mekong-red to-red-800 rounded-2xl p-8 text-white relative overflow-hidden">
+                            <div class="text-center">
+                                <p class="text-6xl mb-4">🍜</p>
+                                <p class="text-2xl font-display font-bold">Phở</p>
+                                <p class="text-red-200">Traditionelle Reissuppe</p>
+                            </div>
+                            <div class="absolute -bottom-4 -right-4 text-9xl opacity-20">🥢</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg">
-          <h3 class="font-display text-2xl font-bold mb-4">Karte</h3>
-          <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank">
-            <img src="https://maps.googleapis.com/maps/api/staticmap?center=Grünberger+Str+29+Reiskirchen&zoom=15&size=400x300&markers=color:red%7CGrünberger+Str+29+Reiskirchen&key=AIzaSyDemo" alt="Karte" class="w-full rounded-lg">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-stone-900 text-white py-12 px-4">
-    <div class="max-w-7xl mx-auto text-center">
-      <h3 class="font-display text-2xl font-bold mb-4">Asia Bistro Mekong</h3>
-      <p class="text-gray-400 mb-4">Authentische vietnamesische Küche in Gießen</p>
-      <p class="text-gray-500 text-sm">Grünberger Str. 29, 35447 Reiskirchen</p>
-      <p class="text-gray-500 text-sm mt-2">© 2026 Asia Bistro Mekong. Alle Rechte vorbehalten.</p>
-      <p class="text-gray-600 text-xs mt-4">Quellen: <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" class="underline">Google Maps</a></p>
-    </div>
-  </footer>
+    <!-- Hours Section -->
+    <section id="hours" class="py-24 bg-mekong-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+                    Öffnungs<span class="text-mekong-gold">zeiten</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Wir freuen uns auf Ihren Besuch</p>
+            </div>
+            
+            <div class="grid md:grid-cols-7 gap-4 reveal stagger-1">
+                <!-- Monday -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10">
+                    <p class="text-gray-400 uppercase tracking-wider mb-2">Montag</p>
+                    <p class="text-2xl font-bold text-gray-500">Geschlossen</p>
+                </div>
+                
+                <!-- Tuesday -->
+                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
+                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Dienstag</p>
+                    <p class="text-2xl font-bold text-white">11:30</p>
+                    <p class="text-gray-400">-</p>
+                    <p class="text-2xl font-bold text-white">20:30</p>
+                </div>
+                
+                <!-- Wednesday -->
+                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
+                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Mittwoch</p>
+                    <p class="text-2xl font-bold text-white">11:30</p>
+                    <p class="text-gray-400">-</p>
+                    <p class="text-2xl font-bold text-white">20:30</p>
+                </div>
+                
+                <!-- Thursday -->
+                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
+                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Donnerstag</p>
+                    <p class="text-2xl font-bold text-white">11:30</p>
+                    <p class="text-gray-400">-</p>
+                    <p class="text-2xl font-bold text-white">20:30</p>
+                </div>
+                
+                <!-- Friday -->
+                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
+                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Freitag</p>
+                    <p class="text-2xl font-bold text-white">11:30</p>
+                    <p class="text-gray-400">-</p>
+                    <p class="text-2xl font-bold text-white">20:30</p>
+                </div>
+                
+                <!-- Saturday -->
+                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
+                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Samstag</p>
+                    <p class="text-2xl font-bold text-white">11:30</p>
+                    <p class="text-gray-400">-</p>
+                    <p class="text-2xl font-bold text-white">20:30</p>
+                </div>
+                
+                <!-- Sunday -->
+                <div class="bg-mekong-red/20 backdrop-blur-sm rounded-xl p-6 text-center border border-mekong-red/30">
+                    <p class="text-mekong-gold uppercase tracking-wider mb-2">Sonntag</p>
+                    <p class="text-2xl font-bold text-white">11:30</p>
+                    <p class="text-gray-400">-</p>
+                    <p class="text-2xl font-bold text-white">20:30</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-mekong-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-mekong-dark mb-6">
+                        Kontakt & <span class="text-mekong-red">Anfahrt</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-8">Wir freuen uns auf Ihren Besuch in unserem Restaurant.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start card-hover bg-white p-6 rounded-xl shadow-lg">
+                            <div class="w-12 h-12 bg-mekong-red/10 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-2xl">📍</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-mekong-dark">Adresse</h3>
+                                <p class="text-gray-600">Grünberger Str. 29</p>
+                                <p class="text-gray-600">35447 Reiskirchen</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start card-hover bg-white p-6 rounded-xl shadow-lg">
+                            <div class="w-12 h-12 bg-mekong-red/10 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-2xl">📞</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-mekong-dark">Telefon</h3>
+                                <a href="tel:064089694251" class="text-mekong-red hover:text-red-700 text-lg font-medium">
+                                    06408 9694251
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start card-hover bg-white p-6 rounded-xl shadow-lg">
+                            <div class="w-12 h-12 bg-mekong-red/10 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-2xl">⭐</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-mekong-dark">Bewertung</h3>
+                                <p class="text-gray-600">4,4 Sterne</p>
+                                <p class="text-gray-500 text-sm">211 Bewertungen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal stagger-2" id="map">
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-[400px] relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2556.5!2d8.85!3d50.58!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bc5e3d5f4c4f4f%3A0x1234567890abcdef!2sGr%C3%BCnberger%20Str.%2029%2C%2035447%20Reiskirchen!5e0!3m2!1sde!2sde!4v1234567890"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" class="absolute bottom-4 right-4 bg-mekong-red text-white px-4 py-2 rounded-full shadow-lg hover:bg-red-700 transition-all">
+                            In Google Maps öffnen →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-r from-mekong-red to-red-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-mekong-gold rounded-full filter blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6 reveal">
+                Probieren Sie unsere Spezialitäten!
+            </h2>
+            <p class="text-xl text-red-100 mb-8 reveal stagger-1">
+                Von klassischem Phở bis zu kreativen vietnamesischen Gerichten – wir freuen uns auf Sie!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal stagger-2">
+                <a href="tel:064089694251" class="bg-white text-mekong-red px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                    📞 Jetzt Anrufen
+                </a>
+                <a href="https://maps.app.goo.gl/C7ZhyTJeDqcuYZhh8" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-mekong-red transition-all transform hover:scale-105">
+                    📍 Route Planen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-mekong-dark py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">
+                        <span class="gold-gradient">Mekong</span>
+                    </h3>
+                    <p class="text-gray-400">Authentische vietnamesische Küche in Reiskirchen</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Schnelllinks</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-mekong-gold transition-colors">Startseite</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-mekong-gold transition-colors">Über uns</a></li>
+                        <li><a href="#hours" class="text-gray-400 hover:text-mekong-gold transition-colors">Öffnungszeiten</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-mekong-gold transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Kontakt</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Grünberger Str. 29</li>
+                        <li>35447 Reiskirchen</li>
+                        <li>06408 9694251</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 2024 Asia Bistro Mekong. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            reveals.forEach((el, index) => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+    </script>
 </body>
 </html>
